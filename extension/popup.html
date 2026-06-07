@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ExplainAI</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>AI Explain</h2>
+      <button id="settings-toggle" class="icon-btn" title="Settings">⚙️</button>
+    </div>
+
+    <div id="settings-panel" class="panel hidden">
+      <div class="field">
+        <label for="apiKey">Gemini API Key</label>
+        <input type="password" id="apiKey" placeholder="AIza..." autocomplete="off" />
+      </div>
+      <div class="field">
+        <label for="custom-instruction">Custom Instruction <span class="optional">(optional)</span></label>
+        <textarea id="custom-instruction" rows="3" placeholder="Your custom AI behavior prompt..."></textarea>
+      </div>
+      <div class="field">
+        <label for="custom-instruction">Custom Instruction <span class="optional">(optional)</span></label>
+        <textarea id="custom-instruction" rows="3" placeholder="Your custom AI behavior prompt..."></textarea>
+      </div>
+      <button id="save-btn" class="primary-btn">Save</button>
+      <span id="settings-status" class="status"></span>
+    </div>
+
+    <div id="main-panel">
+      <p class="hint">Pick a mode, then select text on any page and press <strong>Ctrl+Enter</strong>.</p>
+      <div class="modes">
+        <button class="mode-btn" data-mode="eli5">ELI5</button>
+        <button class="mode-btn" data-mode="technical">Technical</button>
+        <button class="mode-btn" data-mode="bullets">Bullets</button>
+        <button class="mode-btn" data-mode="analogy">Analogy</button>
+        <button class="mode-btn" data-mode="translate">Translate</button>
+        <button class="mode-btn" data-mode="custom">Custom</button>
+      </div>
+      <div id="custom-row" class="input-row hidden">
+        <input type="text" id="custom-question" placeholder="Your question about selected text..." />
+        <button id="save-custom" class="small-btn">Save</button>
+      </div>
+      <div id="translate-row" class="input-row hidden">
+        <input type="text" id="target-language" placeholder="Target language..." />
+        <button id="save-lang" class="small-btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

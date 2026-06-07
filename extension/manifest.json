@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "ExplainAI",
+  "version": "1.0",
+  "description": "Select text on any page, press Ctrl+Enter, and get AI explanations inline.",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": ["<all_urls>", "https://generativelanguage.googleapis.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "explain-selected": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+E",
+        "mac": "Command+Shift+E"
+      },
+      "description": "Explain selected text with the chosen mode"
+    }
+  }
+}
